@@ -10,8 +10,9 @@ Source code is published in `Pritosh-coder/LLM_Assignment1`.
 The three evaluation adapters have been published at https://huggingface.co/Pritosh1/LLM_Assignment1-adapters.
 `config/hf_artifacts.json` pins public commit `05e65940964fefc964de50a205a16fcca1851e12`.
 The publication script verified archive hashes and anonymous config access.
-**Verification pending:** run `python scripts/download_artifacts.py` to verify anonymous access
-and SHA-256 hashes of all uploaded weights. GPU inference has not been revalidated.
+**Download verification passed:** the author ran `python scripts/download_artifacts.py` on Windows
+and all three adapters downloaded anonymously with matching config and weight SHA-256 hashes
+at the pinned commit. GPU inference has not been revalidated.
 The existing submission archive and original report remain in the student's Drive;
 text-bearing predictions and extraction dumps are excluded from this public source repository.
 
@@ -237,5 +238,5 @@ Then inspect the final ZIP manually as well: confirm all mandatory files exist, 
 
 - Three original adapter config/weight pairs verified against the supplied SHA256SUMS.
 - New resolver tests pass; Python compilation and shell syntax checks pass.
-- Full original suite: 79 tests run, 13 errors due to absent official data, legacy notebooks, or Transformers in this CPU preparation environment. No GPU inference or network upload has been verified.
+- Full original suite: 79 tests run, 13 errors due to absent official data, legacy notebooks, or Transformers in this CPU preparation environment. Public adapter upload and anonymous weight downloads were subsequently verified by the author; GPU inference has not been revalidated.
 - See `SETUP_GUIDE.md` for the three legacy notebooks absent from the original source ZIP.
