@@ -1,0 +1,21 @@
+{
+  "selection_split": "partA_validation",
+  "selection_rule": "maximize overlap-IoU50 micro-F1; then minimize leak rate, validation loss, trainable percentage, and run ID",
+  "winner": "A4",
+  "adapter_path": "adapters/best_sanitizer",
+  "winner_metrics": {
+    "val_entity_f1": 0.9510511956347296,
+    "val_leak_rate": 0.03956343792633015,
+    "val_loss": 0.008197244256734848,
+    "trainable_pct": 2.336360353006532
+  },
+  "ranking": [
+    "A4",
+    "A6",
+    "A3",
+    "A5",
+    "A2",
+    "A1"
+  ],
+  "source_adapter_path": "adapters/A4"
+}

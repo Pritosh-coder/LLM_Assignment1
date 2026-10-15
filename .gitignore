@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.cache/
+data/
+adapters/
+recovery/
+wandb/
+*.zip
+*.safetensors
+*.bin
+*.pt
+*.pth
+# Evaluation may contain source text and extracted values. Keep local.
+results/*predictions*.jsonl
+results/detail/*attacks*.json
+results/partC_attacks.json
+evaluation/
+# Original submitted report is available in Drive.
+report.pdf

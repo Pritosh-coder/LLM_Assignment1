@@ -1,0 +1,2 @@
+run_id,method,target_modules,lora_r,lora_alpha,quant,trainable_params,total_params,trainable_pct,peak_gpu_mem_gb,train_wallclock_s,tokens_per_s,final_train_loss,val_loss,val_entity_f1,val_leak_rate
+A4,LoRA,"q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj",32,64,none,36929536,1580643840,2.336360353006532,4.710696220397949,14802.241772530999,385.4673560722676,0.016737671089172363,0.008197244256734848,0.9510511956347296,0.03956343792633015

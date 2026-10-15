@@ -1,0 +1,142 @@
+{
+  "system": "zeroshot",
+  "adapter": null,
+  "test_set": "partB_ood_test",
+  "n": 1000,
+  "exact": {
+    "micro_p": 0.05357142857142857,
+    "micro_r": 0.008305136880959704,
+    "micro_f1": 0.014380825565912116,
+    "macro_p": 0.024403292181069958,
+    "macro_r": 0.001243912254839977,
+    "macro_f1": 0.00222047025664862,
+    "tp": 27,
+    "fp": 477,
+    "fn": 3224
+  },
+  "overlap_iou50": {
+    "micro_p": 0.08531746031746032,
+    "micro_r": 0.013226699477083975,
+    "micro_f1": 0.022902796271637816,
+    "macro_p": 0.039691358024691356,
+    "macro_r": 0.00218301765850746,
+    "macro_f1": 0.003918886885434492,
+    "tp": 43,
+    "fp": 461,
+    "fn": 3208
+  },
+  "per_class": {
+    "GIVENNAME1": {
+      "p": 0.0,
+      "r": 0.0,
+      "f1": 0.0,
+      "support": 334,
+      "exact_p": 0.0,
+      "exact_r": 0.0,
+      "exact_f1": 0.0
+    },
+    "IP": {
+      "p": 0.6,
+      "r": 0.01875,
+      "f1": 0.03636363636363636,
+      "support": 160,
+      "exact_p": 0.4,
+      "exact_r": 0.0125,
+      "exact_f1": 0.024242424242424246
+    },
+    "USERNAME": {
+      "p": 1.0,
+      "r": 0.016,
+      "f1": 0.031496062992125984,
+      "support": 125,
+      "exact_p": 0.5,
+      "exact_r": 0.008,
+      "exact_f1": 0.015748031496062992
+    },
+    "LASTNAME1": {
+      "p": 0.0,
+      "r": 0.0,
+      "f1": 0.0,
+      "support": 124,
+      "exact_p": 0.0,
+      "exact_r": 0.0,
+      "exact_f1": 0.0
+    },
+    "SEX": {
+      "p": 1.0,
+      "r": 0.008771929824561403,
+      "f1": 0.017391304347826087,
+      "support": 114,
+      "exact_p": 1.0,
+      "exact_r": 0.008771929824561403,
+      "exact_f1": 0.017391304347826087
+    },
+    "DATE": {
+      "p": 0.0,
+      "r": 0.0,
+      "f1": 0.0,
+      "support": 100,
+      "exact_p": 0.0,
+      "exact_r": 0.0,
+      "exact_f1": 0.0
+    },
+    "EMAIL": {
+      "p": 0.0,
+      "r": 0.0,
+      "f1": 0.0,
+      "support": 97,
+      "exact_p": 0.0,
+      "exact_r": 0.0,
+      "exact_f1": 0.0
+    },
+    "TITLE": {
+      "p": 0.0,
+      "r": 0.0,
+      "f1": 0.0,
+      "support": 84,
+      "exact_p": 0.0,
+      "exact_r": 0.0,
+      "exact_f1": 0.0
+    },
+    "AMOUNT": {
+      "p": 0.5,
+      "r": 0.012987012987012988,
+      "f1": 0.025316455696202535,
+      "support": 77,
+      "exact_p": 0.5,
+      "exact_r": 0.012987012987012988,
+      "exact_f1": 0.025316455696202535
+    },
+    "JOBAREA": {
+      "p": 0.0,
+      "r": 0.0,
+      "f1": 0.0,
+      "support": 72,
+      "exact_p": 0.0,
+      "exact_r": 0.0,
+      "exact_f1": 0.0
+    }
+  },
+  "leak_rate": 0.9209474007997539,
+  "aligned_leak_rate": 0.8292832974469394,
+  "over_masking_rate": 0.009434182747364895,
+  "well_formed_rate": 0.291,
+  "counts": {
+    "gold_values": 3251,
+    "leaked_gold_values": 2994,
+    "aligned_leaked_gold_occurrences": 2696,
+    "non_pii_characters": 128363,
+    "changed_non_pii_characters": 1211,
+    "well_formed_outputs": 291
+  },
+  "latency": {
+    "mean_ms": 23821.861234903336,
+    "p95_ms": 36398.63395690918
+  },
+  "alignment_issue_counts": {
+    "deletion_without_placeholder": 69,
+    "inserted_placeholder_without_source": 93,
+    "multi_placeholder_ambiguous_even_split": 3,
+    "rewrite_without_placeholder": 1694
+  }
+}

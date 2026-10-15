@@ -1,0 +1,314 @@
+{
+  "partB_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "TIME",
+      "USERNAME",
+      "SOCIALNUMBER",
+      "EMAIL",
+      "IDCARD",
+      "DRIVERLICENSE",
+      "LASTNAME1",
+      "BOD",
+      "PASSPORT",
+      "SEX"
+    ],
+    "new_support": {
+      "TIME": 945,
+      "USERNAME": 760,
+      "SOCIALNUMBER": 668,
+      "EMAIL": 662,
+      "IDCARD": 651,
+      "DRIVERLICENSE": 643,
+      "LASTNAME1": 623,
+      "BOD": 553,
+      "PASSPORT": 552,
+      "SEX": 529
+    }
+  },
+  "detail/zeroshot_test_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "TIME",
+      "USERNAME",
+      "SOCIALNUMBER",
+      "EMAIL",
+      "IDCARD",
+      "DRIVERLICENSE",
+      "LASTNAME1",
+      "BOD",
+      "PASSPORT",
+      "SEX"
+    ],
+    "new_support": {
+      "TIME": 945,
+      "USERNAME": 760,
+      "SOCIALNUMBER": 668,
+      "EMAIL": 662,
+      "IDCARD": 651,
+      "DRIVERLICENSE": 643,
+      "LASTNAME1": 623,
+      "BOD": 553,
+      "PASSPORT": 552,
+      "SEX": 529
+    }
+  },
+  "detail/presidio_test_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "TIME",
+      "USERNAME",
+      "SOCIALNUMBER",
+      "EMAIL",
+      "IDCARD",
+      "DRIVERLICENSE",
+      "LASTNAME1",
+      "BOD",
+      "PASSPORT",
+      "SEX"
+    ],
+    "new_support": {
+      "TIME": 945,
+      "USERNAME": 760,
+      "SOCIALNUMBER": 668,
+      "EMAIL": 662,
+      "IDCARD": 651,
+      "DRIVERLICENSE": 643,
+      "LASTNAME1": 623,
+      "BOD": 553,
+      "PASSPORT": 552,
+      "SEX": 529
+    }
+  },
+  "detail/zeroshot_ood_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "GIVENNAME1",
+      "IP",
+      "USERNAME",
+      "LASTNAME1",
+      "SEX",
+      "DATE",
+      "EMAIL",
+      "TITLE",
+      "AMOUNT",
+      "JOBAREA"
+    ],
+    "new_support": {
+      "GIVENNAME1": 334,
+      "IP": 160,
+      "USERNAME": 125,
+      "LASTNAME1": 124,
+      "SEX": 114,
+      "DATE": 100,
+      "EMAIL": 97,
+      "TITLE": 84,
+      "AMOUNT": 77,
+      "JOBAREA": 72
+    }
+  },
+  "detail/presidio_ood_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "GIVENNAME1",
+      "IP",
+      "USERNAME",
+      "LASTNAME1",
+      "SEX",
+      "DATE",
+      "EMAIL",
+      "TITLE",
+      "AMOUNT",
+      "JOBAREA"
+    ],
+    "new_support": {
+      "GIVENNAME1": 334,
+      "IP": 160,
+      "USERNAME": 125,
+      "LASTNAME1": 124,
+      "SEX": 114,
+      "DATE": 100,
+      "EMAIL": 97,
+      "TITLE": 84,
+      "AMOUNT": 77,
+      "JOBAREA": 72
+    }
+  },
+  "detail/regex_ood_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "GIVENNAME1",
+      "IP",
+      "USERNAME",
+      "LASTNAME1",
+      "SEX",
+      "DATE",
+      "EMAIL",
+      "TITLE",
+      "AMOUNT",
+      "JOBAREA"
+    ],
+    "new_support": {
+      "GIVENNAME1": 334,
+      "IP": 160,
+      "USERNAME": 125,
+      "LASTNAME1": 124,
+      "SEX": 114,
+      "DATE": 100,
+      "EMAIL": 97,
+      "TITLE": 84,
+      "AMOUNT": 77,
+      "JOBAREA": 72
+    }
+  },
+  "detail/regex_test_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "TIME",
+      "USERNAME",
+      "SOCIALNUMBER",
+      "EMAIL",
+      "IDCARD",
+      "DRIVERLICENSE",
+      "LASTNAME1",
+      "BOD",
+      "PASSPORT",
+      "SEX"
+    ],
+    "new_support": {
+      "TIME": 945,
+      "USERNAME": 760,
+      "SOCIALNUMBER": 668,
+      "EMAIL": 662,
+      "IDCARD": 651,
+      "DRIVERLICENSE": 643,
+      "LASTNAME1": 623,
+      "BOD": 553,
+      "PASSPORT": 552,
+      "SEX": 529
+    }
+  },
+  "detail/finetuned_ood_metrics.json": {
+    "all_non_per_class_fields_identical": true,
+    "old_top10": [
+      "TIME",
+      "USERNAME",
+      "EMAIL",
+      "SOCIALNUMBER",
+      "IDCARD",
+      "LASTNAME1",
+      "PASSPORT",
+      "DRIVERLICENSE",
+      "BOD",
+      "IP"
+    ],
+    "new_top10": [
+      "GIVENNAME1",
+      "IP",
+      "USERNAME",
+      "LASTNAME1",
+      "SEX",
+      "DATE",
+      "EMAIL",
+      "TITLE",
+      "AMOUNT",
+      "JOBAREA"
+    ],
+    "new_support": {
+      "GIVENNAME1": 334,
+      "IP": 160,
+      "USERNAME": 125,
+      "LASTNAME1": 124,
+      "SEX": 114,
+      "DATE": 100,
+      "EMAIL": 97,
+      "TITLE": 84,
+      "AMOUNT": 77,
+      "JOBAREA": 72
+    }
+  }
+}

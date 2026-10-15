@@ -1,0 +1,30 @@
+{
+  "repo_id": "Pritosh1/LLM_Assignment1-adapters",
+  "revision": "main",
+  "adapters": {
+    "best_sanitizer": {
+      "subfolder": "best_sanitizer",
+      "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "files": {
+        "adapter_config.json": "45251011260663dc1671da5bb261a8f1a85be7fac868357bad6f93307472de8e",
+        "adapter_model.safetensors": "3332a648a5380850989db1522cc6a7c0fdffb8635bbde70bde1cc5f5d8476aa9"
+      }
+    },
+    "victim_raw": {
+      "subfolder": "victim_raw",
+      "base_model": "Qwen/Qwen2.5-0.5B",
+      "files": {
+        "adapter_config.json": "4f21e460a4c4304e08f91eceaba4fe0ed7fd19319c46e43b66e8a6662da47eaa",
+        "adapter_model.safetensors": "ca54f3307bc77bf47609d6e17d15283d6b3435463762e1c6e5cb7a2d47fd1cda"
+      }
+    },
+    "victim_sanitized": {
+      "subfolder": "victim_sanitized",
+      "base_model": "Qwen/Qwen2.5-0.5B",
+      "files": {
+        "adapter_config.json": "cb2892aa6ddb07bb103c427a59b79beaafe3eabc1cf2427f8da86d93a5225f4e",
+        "adapter_model.safetensors": "b066ff9c185c089e712dbf065665f523bb67b8b4bef2fda9629ccca280f5269f"
+      }
+    }
+  }
+}
