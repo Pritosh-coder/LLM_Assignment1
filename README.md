@@ -7,10 +7,11 @@ This repository implements all three parts of Assignment 1 using the supplied da
 ## Accessibility status
 
 Source code is published in `Pritosh-coder/LLM_Assignment1`.
-The automatic-download configuration targets `Pritosh1/LLM_Assignment1-adapters`.
-**Author action pending:** run the Hugging Face upload in `SETUP_GUIDE.md`, verify anonymous
-weight downloads, then commit the resulting pinned revision in `config/hf_artifacts.json`.
-Until that publication succeeds, a fresh-clone adapter download will fail.
+The three evaluation adapters have been published at https://huggingface.co/Pritosh1/LLM_Assignment1-adapters.
+`config/hf_artifacts.json` pins public commit `05e65940964fefc964de50a205a16fcca1851e12`.
+The publication script verified archive hashes and anonymous config access.
+**Verification pending:** run `python scripts/download_artifacts.py` to verify anonymous access
+and SHA-256 hashes of all uploaded weights. GPU inference has not been revalidated.
 The existing submission archive and original report remain in the student's Drive;
 text-bearing predictions and extraction dumps are excluded from this public source repository.
 
