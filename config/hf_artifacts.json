@@ -1,6 +1,6 @@
 {
   "repo_id": "Pritosh1/LLM_Assignment1-adapters",
-  "revision": "main",
+  "revision": "05e65940964fefc964de50a205a16fcca1851e12",
   "adapters": {
     "best_sanitizer": {
       "subfolder": "best_sanitizer",
