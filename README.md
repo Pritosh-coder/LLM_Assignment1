@@ -233,10 +233,3 @@ python scripts/validate_submission.py --root . --require_report
 ```
 
 Then inspect the final ZIP manually as well: confirm all mandatory files exist, the report has at most five pages, private/full-corpus artifacts are absent, and the archive is ≤500 MB.
-
-## Validation status of this accessibility update
-
-- Three original adapter config/weight pairs verified against the supplied SHA256SUMS.
-- New resolver tests pass; Python compilation and shell syntax checks pass.
-- Full original suite: 79 tests run, 13 errors due to absent official data, legacy notebooks, or Transformers in this CPU preparation environment. Public adapter upload and anonymous weight downloads were subsequently verified by the author; GPU inference has not been revalidated.
-- See `SETUP_GUIDE.md` for the three legacy notebooks absent from the original source ZIP.
