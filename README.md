@@ -193,7 +193,8 @@ missing `adapters/best_sanitizer`, `adapters/A4`, `adapters/victim_raw`, and
 `adapters/victim_sanitized` aliases from the public Hub, anonymously, with SHA-256 verification.
 All six Part A sweep checkpoints A1–A6 are registered separately in `config/hf_part_a_artifacts.json`.
 Upload these shard checkpoints with `scripts/publish_part_a.py`; see [PART_A_UPLOAD.md](PART_A_UPLOAD.md).
-Until that upload is complete, its revision remains null.
+All six runs have been published at commit `80f7fe6869fe4f18ae554251d85f6f57ab2a1db3`;
+the Part A registry pins this revision.
 After publication, `python scripts/download_artifacts.py --part-a` downloads all registered
 Part A checkpoints, and the sanitizer CLIs also resolve missing A1/A2/A3/A5/A6 aliases automatically.
 A4 continues to use the existing identical `best_sanitizer` checkpoint.
