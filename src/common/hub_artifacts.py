@@ -6,10 +6,15 @@ import json
 from pathlib import Path
 
 MANIFEST = Path(__file__).resolve().parents[2] / "config" / "hf_artifacts.json"
+PART_A_MANIFEST = MANIFEST.with_name("hf_part_a_artifacts.json")
 
 
 def load_manifest() -> dict:
     return json.loads(MANIFEST.read_text(encoding="utf-8"))
+
+
+def load_part_a_manifest() -> dict:
+    return json.loads(PART_A_MANIFEST.read_text(encoding="utf-8"))
 
 
 def verify_adapter(path: Path, entry: dict) -> Path:
@@ -30,9 +35,21 @@ def verify_adapter(path: Path, entry: dict) -> Path:
 
 
 def download_adapter(name: str) -> Path:
-    manifest = load_manifest()
+    return _download_adapter(name, load_manifest(), "scripts/publish_hf.py")
+
+
+def download_part_a_adapter(name: str) -> Path:
+    return _download_adapter(name, load_part_a_manifest(), "scripts/publish_part_a.py")
+
+
+def _download_adapter(name: str, manifest: dict, publish_script: str) -> Path:
     if name not in manifest["adapters"]:
         raise ValueError(f"Unknown submitted adapter: {name}")
+    if not manifest.get("revision"):
+        raise RuntimeError(
+            f"{name} has not been published and pinned yet. "
+            f"The author must run {publish_script} and commit its updated manifest."
+        )
     entry = manifest["adapters"][name]
     try:
         from huggingface_hub import snapshot_download
@@ -45,7 +62,7 @@ def download_adapter(name: str) -> Path:
     except Exception as error:
         raise RuntimeError(
             f"Cannot download public adapter {manifest['repo_id']}/{name}. "
-            "The author must publish it using scripts/publish_hf.py first; "
+            f"The author must publish it using {publish_script} first; "
             "also check internet access. No evaluator login is needed."
         ) from error
     return verify_adapter(Path(snapshot) / entry["subfolder"], entry)
@@ -64,10 +81,21 @@ def resolve_adapter(path: Path | None) -> Path | None:
     aliases = {Path("adapters") / name: name for name in manifest["adapters"]}
     aliases[Path("adapters/A4")] = "best_sanitizer"
     name = aliases.get(path)
+    # Keep the established A4/best_sanitizer snapshot stable. Other sweep
+    # checkpoints have a separate publication revision and checksum registry.
+    part_a = load_part_a_manifest()
+    part_a_name = next(
+        (run for run in part_a["adapters"] if path == Path("adapters") / run),
+        None,
+    ) if name is None else None
     if path.is_dir():
         if name:
             return verify_adapter(path, manifest["adapters"][name])
+        if part_a_name:
+            return verify_adapter(path, part_a["adapters"][part_a_name])
         return path
     if name:
         return download_adapter(name)
+    if part_a_name:
+        return download_part_a_adapter(part_a_name)
     raise ValueError(f"Adapter directory does not exist: {path}")

@@ -191,6 +191,13 @@ in `config/hf_artifacts.json`. Publish to Hugging Face **before** committing the
 The direct Part B evaluation, corpus sanitizer, and Part C attack CLIs automatically fetch
 missing `adapters/best_sanitizer`, `adapters/A4`, `adapters/victim_raw`, and
 `adapters/victim_sanitized` aliases from the public Hub, anonymously, with SHA-256 verification.
+Part A sweep checkpoints A1–A4 are registered separately in `config/hf_part_a_artifacts.json`.
+Upload these shard checkpoints with `scripts/publish_part_a.py`; see [PART_A_UPLOAD.md](PART_A_UPLOAD.md).
+Until that upload is complete, its revision remains null. A5/A6 await the third shard.
+After publication, `python scripts/download_artifacts.py --part-a` downloads all registered
+Part A checkpoints, and the sanitizer CLIs also resolve missing A1/A2/A3 aliases automatically.
+A4 continues to use the existing identical `best_sanitizer` checkpoint.
+
 Existing custom local adapter directories still work. Unknown missing paths raise an error.
 The Qwen base model loaders already fetch their pinned public model revisions automatically.
 

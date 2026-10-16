@@ -7,10 +7,24 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from src.common.hub_artifacts import resolve_adapter, verify_adapter
+from src.common.hub_artifacts import resolve_adapter, verify_adapter, download_part_a_adapter
 
 
 class HubArtifactTests(unittest.TestCase):
+    def test_pending_part_a_publication_does_not_download_main(self):
+        manifest = {"repo_id": "Pritosh1/test", "revision": None,
+                    "adapters": {"A1": {}}}
+        with patch("src.common.hub_artifacts.load_part_a_manifest", return_value=manifest):
+            with self.assertRaisesRegex(RuntimeError, "has not been published and pinned"):
+                download_part_a_adapter("A1")
+
+    def test_missing_a1_uses_its_own_checkpoint(self):
+        manifest = {"adapters": {"A1": {}}}
+        with patch("src.common.hub_artifacts.load_part_a_manifest", return_value=manifest), \
+             patch("src.common.hub_artifacts.download_part_a_adapter", return_value=Path("snapshot/A1")) as fetch:
+            self.assertEqual(resolve_adapter(Path("adapters/A1")), Path("snapshot/A1"))
+            fetch.assert_called_once_with("A1")
+
     def test_missing_custom_path_does_not_substitute_a_model(self):
         with self.assertRaises(ValueError):
             resolve_adapter(Path("not-a-real-custom-adapter"))
