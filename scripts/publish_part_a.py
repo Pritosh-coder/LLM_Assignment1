@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import tempfile
 import zipfile
@@ -14,6 +15,19 @@ sys.path.insert(0, str(ROOT))
 from src.common.hub_artifacts import PART_A_MANIFEST, load_part_a_manifest, verify_adapter
 
 
+def locate_run_file(name: str) -> tuple[str, str] | None:
+    """Support original shards, run-only ZIPs and Explorer wrapper folders."""
+    normalized = name.replace("\\", "/")
+    parts = normalized.split("/")
+    runs = [(index, part) for index, part in enumerate(parts) if re.fullmatch(r"A[1-9][0-9]*", part)]
+    if not runs:
+        return None
+    if normalized.startswith("/") or ".." in parts or len(runs) != 1:
+        raise ValueError(f"Unsafe or ambiguous archive member: {name}")
+    index, run = runs[0]
+    return run, "/".join(parts[index + 1:])
+
+
 def stage_shards(paths: list[Path], staging: Path, manifest: dict) -> list[str]:
     """Copy only checksummed files; reject unknown runs and ambiguous duplicates."""
     seen = {}
@@ -21,15 +35,14 @@ def stage_shards(paths: list[Path], staging: Path, manifest: dict) -> list[str]:
         for path in paths:
             archive = stack.enter_context(zipfile.ZipFile(path))
             for member in archive.infolist():
-                if member.is_dir() or not member.filename.startswith("adapters/"):
+                if member.is_dir():
                     continue
-                parts = member.filename.split("/")
-                if len(parts) < 3:
+                location = locate_run_file(member.filename)
+                if location is None:
                     continue
-                run = parts[1]
+                run, filename = location
                 if run not in manifest["adapters"]:
                     raise ValueError(f"{run} is not in the inspected Part A manifest. Update it before publishing.")
-                filename = "/".join(parts[2:])
                 entry = manifest["adapters"][run]
                 if filename not in entry["files"]:
                     continue
@@ -69,6 +82,8 @@ def main() -> None:
     parser.add_argument("--check-only", action="store_true")
     args = parser.parse_args()
     manifest = load_part_a_manifest()
+    if set(manifest["adapters"]) != {f"A{i}" for i in range(1, 7)}:
+        raise SystemExit("Part A publication requires all six registered runs A1 through A6.")
     with tempfile.TemporaryDirectory(prefix="part-a-upload-") as directory:
         staging = Path(directory)
         runs = stage_shards(args.shards, staging, manifest)
